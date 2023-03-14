@@ -12,41 +12,15 @@ import java.util.Scanner;
 //  Вся суть printAllCities() заключается в том, что надо вывести все города на консоль.
 public class CityMethodsImpl implements CityMethods {
 
+
     @Override
     public City[] readFile() {
-        City[] cities = new City[1109];
-        try {
-            FileReader fileReader = new FileReader("city_ru.csv");
-            Scanner scanner = new Scanner(fileReader);
-            int i = 0;
-            while (scanner.hasNext()) {
-                String[] fileContent = scanner.nextLine().split(";");
-                City city = new City();
-                city.setId(Integer.parseInt(fileContent[0]));
-                city.setName(fileContent[1]);
-                city.setRegion(fileContent[2]);
-                city.setDistrict(fileContent[3]);
-                city.setPopulation(Integer.parseInt(fileContent[4]));
-                try {
-                    city.setFoundation(fileContent[5]);
-                } catch (ArrayIndexOutOfBoundsException e) {
-                    city.setFoundation(null);
-                    System.out.println(e.getMessage());
-                }
-                cities[i] = city;
-                i++;
-            }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        return cities;
+        return new City[0];
     }
 
     @Override
     public void printAllCities(City[] cities) {
-        for (int i = 0; i < cities.length; i++) {
-            System.out.println(cities[i]);
-        }
+
     }
 
     @Override
